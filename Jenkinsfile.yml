@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            agent {
+                docker ( image 'maven')
+            }
+            steps {
+                sh 'mvn pacacke -Dmaven.test.skip=true'
+            }
+        }
+        stage('Test') {
+            agent {
+                docker ( image 'maven')
+            }
+            steps {
+                echo 'Testing..'
+                sh 'mvn test'
+            }
+        }
+    }
+}
