@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker ( image 'maven')
+                docker ( image 'maven:latest')
             }
             steps {
                 sh 'mvn pacacke -Dmaven.test.skip=true'
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             agent {
-                docker ( image 'maven')
+                docker ( image 'maven:latest')
             }
             steps {
                 echo 'Testing..'
