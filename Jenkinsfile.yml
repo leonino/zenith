@@ -1,18 +1,16 @@
 pipeline {
     agent any
+
+    tools {
+        maven '3.9.9'
+    }
     stages {
         stage('Build') {
-            agent {
-                mvn
-            }
             steps {
                 sh 'mvn pacacke'
             }
         }
         stage('Test') {
-            agent {
-                mvn
-            }
             steps {
                 echo 'Testing..'
                 sh 'mvn test'
