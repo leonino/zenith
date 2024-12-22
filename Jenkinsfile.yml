@@ -3,16 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                maven ('mvn')
+                label 'maven'
             }
             steps {
                 sh 'mvn pacacke'
             }
         }
         stage('Test') {
-            agent {
-                maven ('mvn')
-            }
             steps {
                 echo 'Testing..'
                 sh 'mvn test'
