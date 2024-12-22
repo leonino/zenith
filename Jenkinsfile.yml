@@ -2,11 +2,17 @@ pipeline {
     agent any
     stages {
         stage('Build') {
+            agent {
+                docker ( image 'mvn')
+            }
             steps {
                 sh 'mvn pacacke'
             }
         }
         stage('Test') {
+            agent {
+                docker ( image 'mvn')
+            }
             steps {
                 echo 'Testing..'
                 sh 'mvn test'
