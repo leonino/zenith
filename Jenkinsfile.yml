@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn pacacke -Dmaven.test.skip=true'
+                sh 'mvn pacacke'
             }
         }
         stage('Test') {
