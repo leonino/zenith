@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //javash 'mvn dependency:list'
+                java sh 'mvn dependency:list'
                 sh 'mvn package'
             }
         }
