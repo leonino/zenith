@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.2.1</version>
+    <version>3.4.1</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
   <groupId>solutil.com.br</groupId>
@@ -130,7 +130,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
           <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
@@ -138,14 +142,6 @@
               <version>${lombok.version}</version>
             </path>
           </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.1</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
       <plugin>
@@ -162,5 +158,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
